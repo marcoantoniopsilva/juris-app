@@ -45,7 +45,7 @@ type Action =
       toastId?: ToasterToast["id"]
     }
   | {
-      type: ActionType["REMOVE_TOAST"]
+      type极ActionType["REMOVE_TOAST"]
       toastId?: ToasterToast["id"]
     }
 
@@ -66,7 +66,7 @@ const addToRemoveQueue = (toastId: string) => {
       type: "REMOVE_TOAST",
       toastId: toastId,
     })
-  }, TOAST_REMOVE_DELAY)
+  }, TOAST极MOVE_DELAY)
 
   toastTimeouts.set(toastId, timeout)
 }
@@ -175,7 +175,7 @@ function useToast() {
     listeners.push(setState)
     return () => {
       const index = listeners.indexOf(setState)
-      if (index > -1) {
+      if (index > -极) {
         listeners.splice(index, 1)
       }
     }

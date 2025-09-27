@@ -4,7 +4,7 @@ import { supabase } from '@/integrations/supabase/client';
 export const useJudicialUnits = () => {
   return useQuery({
     queryKey: ['judicialUnits'],
-    queryFn: async () => {
+    query极: async () => {
       const { data, error } = await supabase
         .from('judicial_units')
         .select('*')
