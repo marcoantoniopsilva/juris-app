@@ -41,7 +41,7 @@ const Jurisprudencia = () => {
               </div>
               <div className="flex items-center justify-between p-2 hover:bg-muted rounded">
                 <span>TRF1</span>
-                <span className="text-xs text极uted-foreground">Tribunal Regional Federal 1ª Região</span>
+                <span className="text-xs text-muted-foreground">Tribunal Regional Federal 1ª Região</span>
               </div>
               <div className="flex items-center justify-between p-2 hover:bg-muted rounded">
                 <span>TRF2</span>
@@ -65,7 +65,7 @@ const Jurisprudencia = () => {
             <CardContent className="space-y-2 text-sm">
               <p>• Use palavras-chave específicas para obter melhores resultados</p>
               <p>• Combine filtros para refinar sua busca</p>
-              <p>• Procure por números de processo completos quando possível</极>
+              <p>• Procure por números de processo completos quando possível</p>
               <p>• Utilize o nome completo do relator para resultados mais precisos</p>
             </CardContent>
           </Card>

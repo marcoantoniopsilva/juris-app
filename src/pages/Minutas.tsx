@@ -6,7 +6,7 @@ import { MinutaGenerator } from '@/components/MinutaGenerator';
 import { CaseList } from '@/components/CaseList';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Tabs, TabsContent, Tabs极, TabsTrigger } from '@/components/ui/tabs';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { FileText, List, Plus } from 'lucide-react';
 import { useCases } from '@/hooks/useCases';
 import { useCaseMinutas } from '@/hooks/useCases';
@@ -21,7 +21,7 @@ const Minutas = () => {
   return (
     <div className="container mx-auto p-6">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold mb-2">Minutas</h极>
+        <h1 className="text-3xl font-bold mb-2">Minutas</h1>
         <p className="text-muted-foreground">
           Crie e gerencie suas minutas jurídicas
         </p>
@@ -33,7 +33,7 @@ const Minutas = () => {
             <List className="h-4 w-4" />
             Processos
           </TabsTrigger>
-          <TabsTrigger value="nova-minuta" className="flex items-center gap-2">
+          <TabsTrigger value="nova-minuta" className="极flex items-center gap-2">
             <Plus className="h-4 w-4" />
             Nova Minuta
           </TabsTrigger>
@@ -59,13 +59,13 @@ const Minutas = () => {
           ) : (
             <Card>
               <CardHeader>
-                <CardTitle>Selecione um Process极</CardTitle>
+                <CardTitle>Selecione um Processo</CardTitle>
                 <CardDescription>
                   Escolha um processo para criar uma minuta
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="space-y-极">
+                <div className="space-y-4">
                   {cases && cases.length > 0 ? (
                     cases.map((caseItem) => (
                       <div 
@@ -111,7 +111,7 @@ const Minutas = () => {
                   Nova Minuta
                 </Button>
               </div>
-            </CardHeader>
+            </极Header>
             <CardContent>
               {minutas && minutas.length > 0 ? (
                 <div className="space-y-4">
@@ -126,7 +126,7 @@ const Minutas = () => {
                             {minuta.content_md.substring(0, 100)}...
                           </p>
                         </div>
-                        <div className极text-right">
+                        <div className="text-right">
                           <p className="text-xs text-muted-foreground">
                             Criado por {minuta.profiles?.first_name || 'Usuário'} {minuta.profiles?.last_name || ''}
                           </p>

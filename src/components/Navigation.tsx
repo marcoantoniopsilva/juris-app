@@ -30,7 +30,7 @@ export function Navigation() {
             <div className="hidden md:flex items-center space-x-4">
               <Button variant="ghost" asChild>
                 <Link to="/dashboard" className="flex items-center gap-2">
-                  <Home className="h-4 w-极" />
+                  <Home className="h-4 w-4" />
                   Dashboard
                 </Link>
               </Button>
@@ -55,7 +55,7 @@ export function Navigation() {
             </div>
           </div>
           
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space极-2">
             <Button variant="ghost" size="icon" onClick={handleLogout}>
               <LogOut className="h-5 w-5" />
             </Button>

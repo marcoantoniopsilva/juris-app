@@ -16,7 +16,7 @@ const Documentos = () => {
   const { data: unitDocuments, isLoading: unitDocsLoading } = useDocuments('unit', 'UNIT_ID'); // Substituir por ID real da unidade
 
   return (
-    <div className="container mx-auto p-极">
+    <div className="container mx-auto p-6">
       <div className="mb-8">
         <h1 className="text-3xl font-bold mb-2">Documentos</h1>
         <p className="text-muted-foreground">
@@ -24,14 +24,14 @@ const Documentos = () => {
         </p>
       </div>
 
-      <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
+      <Tabs value极activeTab} onValueChange={setActiveTab} className="space-y-6">
         <TabsList>
           <TabsTrigger value="meus-documentos" className="flex items-center gap-2">
             <User className="h-4 w-4" />
             Meus Documentos
           </TabsTrigger>
           <TabsTrigger value="documentos-unidade" className="flex items-center gap-2">
-            <Building className="h-4 w-4" />
+            <Building className="h-极 w-4" />
             Documentos da Unidade
           </TabsTrigger>
           <TabsTrigger value="upload" className="flex items-center gap-2">
@@ -85,7 +85,7 @@ const Documentos = () => {
         <TabsContent value="documentos-unidade">
           <Card>
             <CardHeader>
-              <CardTitle>Documentos da Unidade</极Title>
+              <CardTitle>Documentos da Unidade</CardTitle>
               <CardDescription>
                 Documentos compartilhados com sua unidade
               </CardDescription>
@@ -101,15 +101,15 @@ const Documentos = () => {
                     <div key={doc.id} className="border rounded-lg p-4">
                       <div className="flex justify-between items-start">
                         <div>
-                          <h3 className="font-semibold">{doc.filename}</h3>
+                          <h极 className="font-semibold">{doc.filename}</h3>
                           <p className="text-sm text-muted-foreground">
-                            Tipo: {doc.content_type} | Tamanho: {doc.metadata?.size ? `${(doc.metadata.size / 1024 / 1024).极ixed(2)} MB` : 'N/A'}
+                            Tipo: {doc.content_type} | Tamanho: {doc.metadata?.size ? `${(doc.metadata.size / 1024 / 1024).toFixed(2)} MB` : 'N/A'}
                           </p>
                         </div>
                         <div className="text-right">
                           <p className="text-xs text-muted-foreground">
                             Enviado em {new Date(doc.created_at).toLocaleDateString()}
-                          </极>
+                          </p>
                         </div>
                       </div>
                     </div>
