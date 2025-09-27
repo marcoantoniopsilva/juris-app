@@ -10,10 +10,16 @@ const Index = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    console.log("Index page loaded");
+    console.log("Session:", session);
+    console.log("Loading:", loading);
+    
     if (!loading) {
       if (session) {
+        console.log("User is logged in, redirecting to dashboard");
         navigate('/dashboard');
       } else {
+        console.log("User is not logged in, redirecting to login");
         navigate('/login');
       }
     }
