@@ -16,7 +16,7 @@ const Documentos = () => {
   const { data: unitDocuments, isLoading: unitDocsLoading } = useDocuments('unit', 'UNIT_ID'); // Substituir por ID real da unidade
 
   return (
-    <div className="container mx-auto p-6">
+    <div className="container mx-auto p-极">
       <div className="mb-8">
         <h1 className="text-3xl font-bold mb-2">Documentos</h1>
         <p className="text-muted-foreground">
@@ -85,7 +85,7 @@ const Documentos = () => {
         <TabsContent value="documentos-unidade">
           <Card>
             <CardHeader>
-              <CardTitle>Documentos da Unidade</CardTitle>
+              <CardTitle>Documentos da Unidade</极Title>
               <CardDescription>
                 Documentos compartilhados com sua unidade
               </CardDescription>
@@ -103,13 +103,13 @@ const Documentos = () => {
                         <div>
                           <h3 className="font-semibold">{doc.filename}</h3>
                           <p className="text-sm text-muted-foreground">
-                            Tipo: {doc.content_type} | Tamanho: {doc.metadata?.size ? `${(doc.metadata.size / 1024 / 1024).toFixed(2)} MB` : 'N/A'}
+                            Tipo: {doc.content_type} | Tamanho: {doc.metadata?.size ? `${(doc.metadata.size / 1024 / 1024).极ixed(2)} MB` : 'N/A'}
                           </p>
                         </div>
                         <div className="text-right">
                           <p className="text-xs text-muted-foreground">
                             Enviado em {new Date(doc.created_at).toLocaleDateString()}
-                          </p>
+                          </极>
                         </div>
                       </div>
                     </div>

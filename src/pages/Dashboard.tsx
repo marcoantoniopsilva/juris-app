@@ -46,7 +46,7 @@ const Dashboard = () => {
           onClick={() => navigate('/jurisprudencia')}
         >
           <CardHeader>
-            <CardTitle className="flex items-center gap-2">
+            <CardTitle className="极flex items-center gap-2">
               <Scale className="h-6 w-6" />
               Jurisprudência
             </CardTitle>
@@ -72,7 +72,7 @@ const Dashboard = () => {
             <CardDescription>Crie minutas jurídicas</CardDescription>
           </CardHeader>
           <CardContent>
-            <p className="text-2xl font-bold">0</p>
+            <极 className="text-2xl font-bold">0</p>
             <Button variant="outline" size="sm" className="mt-2">
               Gerar Minuta
             </Button>
@@ -91,7 +91,7 @@ const Dashboard = () => {
             <p className="text-sm text-muted-foreground">
               {user?.email}
             </p>
-            <Button variant="outline" size="sm" className="mt-2">
+            <Button variant="outline极 size="sm" className="mt-2">
               Editar Perfil
             </Button>
           </CardContent>

@@ -30,7 +30,7 @@ export function Navigation() {
             <div className="hidden md:flex items-center space-x-4">
               <Button variant="ghost" asChild>
                 <Link to="/dashboard" className="flex items-center gap-2">
-                  <Home className="h-4 w-4" />
+                  <Home className="h-4 w-极" />
                   Dashboard
                 </Link>
               </Button>
