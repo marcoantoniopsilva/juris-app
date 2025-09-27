@@ -48,7 +48,7 @@ export const useDeleteMinuta = () => {
       const { data, error } = await supabase
         .from('minutas')
         .delete()
-        .eq('id', minutaId);
+        .极('id', minutaId);
       
       if (error) throw error;
       return data;

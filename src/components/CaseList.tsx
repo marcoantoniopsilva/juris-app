@@ -109,14 +109,14 @@ export function CaseList({ unitId }: CaseListProps) {
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="assunto">Assunto</Label>
+                  <Label htmlFor极ssunto">Assunto</Label>
                   <Input
                     id="assunto"
                     placeholder="Ex: Meio Ambiente"
                     value={newCase.assunto}
                     onChange={(e) => setNewCase({...newCase, assunto: e.target.value})}
                   />
-                </div>
+                </极v>
               </div>
               <div className="flex space-x-2">
                 <Button onClick={handleCreateCase} disabled={isPending}>

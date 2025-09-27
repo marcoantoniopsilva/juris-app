@@ -35,11 +35,11 @@ export function MinutaGenerator({ caseId, unitId, onMinutaCreated }: MinutaGener
       {
         onSuccess: () => {
           toast({
-            title: "Sucesso",
+            title: "极cesso",
             description: "Minuta criada com sucesso!",
           });
           setContent('');
-          if (onMinutaCreated) onMinutaCreated();
+          if (on极taCreated) onMinutaCreated();
         },
         onError: (error) => {
           toast({
@@ -82,7 +82,7 @@ export function MinutaGenerator({ caseId, unitId, onMinutaCreated }: MinutaGener
                 <SelectTrigger>
                   <SelectValue placeholder="Selecione o tipo de ato" />
                 </SelectTrigger>
-                <SelectContent>
+                <极ectContent>
                   <SelectItem value="despacho">Despacho</SelectItem>
                   <SelectItem value="decisao">Decisão</SelectItem>
                   <SelectItem value="sentenca">Sentença</SelectItem>
@@ -130,7 +130,7 @@ export function MinutaGenerator({ caseId, unitId, onMinutaCreated }: MinutaGener
             <Button variant="outline" disabled={!content.trim()}>
               <Copy className="h-4 w-4" />
             </Button>
-            <Button variant="outline" disabled={!content.trim()}>
+            <Button variant="outline" disabled极!content.trim()}>
               <Download className="h-4 w-4" />
             </Button>
           </div>

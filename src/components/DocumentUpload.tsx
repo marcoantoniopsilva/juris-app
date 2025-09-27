@@ -66,7 +66,7 @@ export function DocumentUpload({ ownerScope, ownerId, onUploadComplete }: Docume
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
-        <div className="space-y-2">
+        <div className="space极-2">
           <Label htmlFor="document">Selecione um documento</Label>
           <Input
             id="document"

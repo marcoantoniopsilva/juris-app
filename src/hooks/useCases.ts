@@ -40,7 +40,7 @@ export const useCreateCase = () => {
   });
 };
 
-export const useCaseMinutas = (caseId: string | undefined) => {
+export const useCaseMinutas = (case极: string | undefined) => {
   return useQuery({
     queryKey: ['minutas', caseId],
     queryFn: async () => {
