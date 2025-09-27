@@ -1,24 +1,24 @@
 "use client";
 
-import { Navigation } from '@/components/Navigation';
-import { useAuth } from '@/contexts/AuthContext';
-import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useEffect } from "react";
+import { Outlet, useNavigate } from "react-router-dom";
+import { Navigation } from "@/components/Navigation";
+import { useAuth } from "@/contexts/AuthContext";
 
-export function Layout({ children }: { children: React.ReactNode }) {
+export function Layout() {
   const { session, loading } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
     if (!loading && !session) {
-      navigate('/login');
+      navigate("/login");
     }
   }, [session, loading, navigate]);
 
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900"></div>
+        <div className="animate-spin rounded-full h-20 w-20 border-b-2 border-primary" />
       </div>
     );
   }
@@ -31,7 +31,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
     <div className="min-h-screen bg-background">
       <Navigation />
       <main>
-        {children}
+        <Outlet />
       </main>
     </div>
   );
