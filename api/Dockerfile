@@ -1,24 +1,30 @@
 FROM python:3.11-slim
 
-WORKDIR /app
-
 # Instalar dependências do sistema
 RUN apt-get update && apt-get install -y \
-    poppler-utils \
-    tesseract-ocr \
-    tesseract-ocr-por \
+    gcc \
+    g++ \
+    libpq-dev \
     ffmpeg \
     libsm6 \
     libxext6 \
     && rm -rf /var/lib/apt/lists/*
 
-# Copiar requirements primeiro para aproveitar cache
+# Definir diretório de trabalho
+WORKDIR /app
+
+# Copiar requirements e instalar dependências
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copiar o código
+# Copiar código da aplicação
 COPY . .
 
+# Criar diretórios necessários
+RUN mkdir -p logs backups
+
+# Expor porta
 EXPOSE 8000
 
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+# Comando de inicialização
+CMD ["python", "start_app.py"]

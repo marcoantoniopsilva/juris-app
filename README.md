@@ -2,39 +2,39 @@
 
 Sistema completo de geração de minutas jurídicas com RAG (Retrieval Augmented Generation) para o Poder Judiciário brasileiro.
 
-## 🚀 Funcionalidades
+## 🚀 Funcionalidades Principais
 
-- **RAG Jurídico**: Busca híbrida em documentos do usuário, modelos da unidade e jurisprudência
-- **Scraping de Jurisprudência**: STF, STJ, TRF1-TRF6 com Playwright
-- **Geração de Minutas**: Despachos, decisões e sentenças com citações rastreáveis
-- **Multi-tenant**: Isolamento por unidade judicial e usuário
-- **RBAC**: Controle de acesso por cargo (juiz, assessor, secretaria, estagiário)
-- **Upload de Documentos**: PDF, DOCX, TXT, CSV, XLSX, imagens, áudio/vídeo
-- **OCR/ASR**: Extração de texto com PaddleOCR e Whisper
-- **Exportação**: DOCX e PDF com templates por tribunal
+- **🤖 RAG Jurídico**: Busca inteligente em documentos, jurisprudência e modelos
+- **📄 Processamento de Documentos**: Suporte a PDF, DOCX, imagens, áudio e vídeo com OCR/ASR
+- **⚖️ Scraping de Jurisprudência**: Integração com STF, STJ, TRFs
+- **📝 Geração de Minutas**: Despachos, decisões e sentenças automatizadas
+- **👥 Colaboração**: Comentários, sugestões e revisão em tempo real
+- **🔒 Segurança**: RBAC, LGPD, auditoria completa
+- **📊 Monitoramento**: Métricas, alertas e relatórios
 
 ## 🏗️ Arquitetura
 
-### Frontend
-- **Next.js 14** com App Router
-- **TypeScript** para type safety
-- **Tailwind CSS** com shadcn/ui
-- **Zustand** para gerenciamento de estado
-- **React Hook Form** + **Zod** para formulários
+### Frontend (Next.js 14)
+- **Framework**: Next.js 14 com App Router
+- **Estilo**: Tailwind CSS + shadcn/ui
+- **Estado**: Zustand
+- **Formulários**: React Hook Form + Zod
+- **API Client**: Axios
 
-### Backend
-- **FastAPI** com Python 3.11
-- **PostgreSQL 15** com pgvector para embeddings
-- **Celery** + **Redis** para tarefas assíncronas
-- **MinIO** para armazenamento de arquivos
-- **Playwright** para scraping de jurisprudência
+### Backend (FastAPI)
+- **Framework**: FastAPI com Python 3.11
+- **Banco**: PostgreSQL 15 + pgvector
+- **Cache**: Redis
+- **Armazenamento**: MinIO (S3 compatível)
+- **Filas**: Celery + Redis
+- **Monitoramento**: Prometheus, Flower
 
 ### IA/ML
-- **LLM Principal**: GPT-4.1 (com opção para modelos on-prem)
-- **Embeddings**: text-embedding-3-large
-- **Reranking**: bge-reranker-v2-m3
-- **OCR**: PaddleOCR + docTR
-- **ASR**: Whisper large-v3
+- **LLM**: OpenAI GPT-4/GPT-3.5 (compatível com modelos locais)
+- **Embeddings**: Sentence Transformers
+- **OCR**: PaddleOCR
+- **ASR**: Whisper
+- **Scraping**: Playwright
 
 ## 🛠️ Instalação
 
@@ -60,59 +60,119 @@ cp .env.example .env
 docker compose up -d
 ```
 
-### 4. Execute as migrações (opcional)
+### 4. Inicialize o banco de dados
+```bash
+python scripts/init_database.py
+```
+
+### 5. Execute as migrações
 ```bash
 cd api
 alembic upgrade head
 ```
 
-### 5. Popule dados iniciais
-```bash
-python scripts/seed_data.py
-```
-
 ### 6. Acesse a aplicação
-- Frontend: http://localhost:3000
-- API: http://localhost:8000
-- MinIO Console: http://localhost:9001
-- PGAdmin: http://localhost:5050 (se configurado)
+- **Frontend**: http://localhost:3000
+- **API**: http://localhost:8000
+- **MinIO Console**: http://localhost:9001
+- **Flower (Celery)**: http://localhost:5555
+- **Documentação API**: http://localhost:8000/docs
 
 ## 📦 Estrutura do Projeto
 
 ```
-.
+juridico-assessor/
 ├── api/                 # Backend FastAPI
 │   ├── app/
-│   │   ├── core/       # Configurações
-│   │   ├── db/         # Database
-│   │   ├── models/     # SQLAlchemy models
-│   │   ├── schemas/    # Pydantic schemas
-│   │   ├── services/   # Business logic
+│   │   ├── core/       # Configurações principais
+│   │   ├── models/     # Modelos de banco
+│   │   ├── api/        # Rotas da API
+│   │   ├── services/   # Lógica de negócio
 │   │   ├── utils/      # Utilitários
-│   │   └── worker/     # Celery tasks
+│   │   └── worker/     # Tarefas Celery
+│   ├── alembic/        # Migrações de banco
 │   └── requirements.txt
 ├── frontend/            # Next.js frontend
 │   ├── src/
-│   │   ├── app/        # App Router pages
-│   │   ├── components/ # UI components
+│   │   ├── app/        # App Router
+│   │   ├── components/ # Componentes UI
 │   │   ├── lib/       # Utilitários
-│   │   └── stores/    # Zustand stores
+│   │   └── stores/    # Gerenciamento de estado
 │   └── package.json
-├── infra/               # Configurações de infra
 ├── scripts/            # Scripts auxiliares
-└── docker-compose.yml
+├── docker-compose.yml
+└── README.md
 ```
 
-## 🔐 Segurança
+## 🔧 Configuração
 
-- **Isolamento de dados**: Filtros por unit_id em todas as queries
-- **RBAC**: Permissões granulars por cargo
-- **Criptografia**: AES-256 at rest, TLS in transit
-- **Auditoria**: Logs completos de todas as operações
-- **Sem telemetria**: DATA_USAGE_OPT_OUT=true por padrão
+### Variáveis de Ambiente Principais
 
-## 🧪 Testes
+```env
+# Banco de dados
+POSTGRES_URL=postgresql://postgres:postgres@postgres:5432/juridico
 
+# Redis
+REDIS_URL=redis://redis:6379/0
+
+# MinIO/S3
+S3_ENDPOINT=http://minio:9000
+S3_BUCKET=juridico-files
+S3_ACCESS_KEY=minioadmin
+S3_SECRET_KEY=minioadmin
+
+# Segurança
+SECRET_KEY=your-super-secret-key
+ALGORITHM=HS256
+
+# Celery
+CELERY_BROKER_URL=redis://redis:6379/0
+CELERY_RESULT_BACKEND=redis://redis:6379/0
+```
+
+## 🚀 Uso Rápido
+
+### 1. Login
+Acesse http://localhost:3000 e faça login com:
+- Email: admin@example.com
+- Senha: admin123
+
+### 2. Upload de Documentos
+- Navegue para "Upload"
+- Arraste documentos ou clique para selecionar
+- Documentos serão processados automaticamente
+
+### 3. Busca Jurisprudência
+- Acesse "Jurisprudência"
+- Digite termos de busca
+- Selecione tribunais e filtros
+- Clique em "Buscar"
+
+### 4. Gerar Minuta
+- Acesse "Minutas"
+- Selecione o tipo de ato
+- Configure as opções
+- Clique em "Gerar Minuta"
+
+### 5. Colaboração
+- Adicione comentários em documentos
+- Faça sugestões de edição
+- Revise minutas com colegas
+
+## 🧪 Desenvolvimento
+
+### Executando em modo desenvolvimento
+```bash
+# Backend
+cd api
+uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+
+# Frontend
+cd frontend
+npm run dev
+```
+
+### Testes
 ```bash
 # Backend
 cd api
@@ -123,35 +183,107 @@ cd frontend
 npm test
 ```
 
+### Linting e Formatação
+```bash
+# Backend
+cd api
+black .
+flake8 .
+mypy .
+
+# Frontend
+cd frontend
+npm run lint
+```
+
 ## 📊 Monitoramento
 
-- **Prometheus** + **Grafana** para métricas
-- **Logs estruturados** em JSON
-- **Health checks** automatizados
+### Métricas da Aplicação
+- **Health Checks**: http://localhost:8000/health
+- **Métricas Prometheus**: http://localhost:8000/metrics
+- **Monitor Celery**: http://localhost:5555
 
-## 🤝 Contribuição
+### Logs
+```bash
+# Ver logs dos containers
+docker compose logs -f
 
-1. Fork o projeto
-2. Crie uma branch para sua feature
-3. Commit suas mudanças
-4. Push para a branch
-5. Abra um Pull Request
+# Logs da aplicação
+tail -f api/logs/app.log
+```
+
+## 🔒 Segurança
+
+### Autenticação
+- JWT tokens com expiração configurável
+- Refresh tokens
+- Validação de escopos e permissões
+
+### RBAC (Role-Based Access Control)
+- **Juiz**: Acesso completo
+- **Assessor**: Criação e edição de minutas
+- **Secretaria**: Upload e organização
+- **Estagiário**: Acesso limitado
+
+### LGPD
+- Pseudonimização de dados sensíveis
+- Logs de auditoria
+- Controle de consentimento
+
+## 🚨 Troubleshooting
+
+### Problemas Comuns
+
+1. **Erro de conexão com banco**
+   ```bash
+   docker compose restart postgres
+   ```
+
+2. **Redis não responde**
+   ```bash
+   docker compose restart redis
+   ```
+
+3. **Migrações falham**
+   ```bash
+   cd api
+   alembic upgrade head
+   ```
+
+4. **Arquivos não são processados**
+   ```bash
+   docker compose restart worker
+   ```
+
+### Logs de Depuração
+```bash
+# Logs detalhados
+docker compose logs --tail=100 -f api
+
+# Logs de erro
+docker compose logs | grep -i error
+```
+
+## 📞 Suporte
+
+Para issues e dúvidas:
+1. Consulte a documentação em `/docs`
+2. Verifique os logs da aplicação
+3. Abra uma issue no repositório
+4. Contate a equipe de desenvolvimento
 
 ## 📝 Licença
 
 Este projeto é destinado ao uso no Poder Judiciário brasileiro.
 
-## 🆘 Suporte
+## 🎯 Próximos Passos
 
-Para dúvidas e suporte:
-- Consulte a documentação em `/docs`
-- Abra uma issue no repositório
-- Contate a equipe de desenvolvimento
+- [ ] Integração com sistemas tribunais
+- [ ] Modelos de IA customizados
+- [ ] Mobile app
+- [ ] Analytics avançado
+- [ ] Integração com PJe
 
-## 🚨 Importante
+---
 
-Este sistema lida com dados sensíveis do Poder Judiciário. Certifique-se de:
-- Configurar corretamente as chaves de criptografia
-- Manter o sistema atualizado com patches de segurança
-- Realizar backups regulares
-- Seguir as normas de segurança da informação do seu tribunal
+**Desenvolvido para o Poder Judiciário Brasileiro** 🎖️
