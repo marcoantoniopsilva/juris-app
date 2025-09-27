@@ -24,14 +24,14 @@ const Documentos = () => {
         </p>
       </div>
 
-      <Tabs value极activeTab} onValueChange={setActiveTab} className="space-y-6">
+      <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
         <TabsList>
           <TabsTrigger value="meus-documentos" className="flex items-center gap-2">
             <User className="h-4 w-4" />
             Meus Documentos
           </TabsTrigger>
           <TabsTrigger value="documentos-unidade" className="flex items-center gap-2">
-            <Building className="h-极 w-4" />
+            <Building className="h-4 w-4" />
             Documentos da Unidade
           </TabsTrigger>
           <TabsTrigger value="upload" className="flex items-center gap-2">
@@ -101,7 +101,7 @@ const Documentos = () => {
                     <div key={doc.id} className="border rounded-lg p-4">
                       <div className="flex justify-between items-start">
                         <div>
-                          <h极 className="font-semibold">{doc.filename}</h3>
+                          <h3 className="font-semibold">{doc.filename}</h3>
                           <p className="text-sm text-muted-foreground">
                             Tipo: {doc.content_type} | Tamanho: {doc.metadata?.size ? `${(doc.metadata.size / 1024 / 1024).toFixed(2)} MB` : 'N/A'}
                           </p>

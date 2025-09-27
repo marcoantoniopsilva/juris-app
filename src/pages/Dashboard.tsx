@@ -85,7 +85,7 @@ const Dashboard = () => {
               <Users className="h-6 w-6" />
               Perfil
             </CardTitle>
-            <CardDescription>Configurações da conta</极Description>
+            <CardDescription>Configurações da conta</CardDescription>
           </CardHeader>
           <CardContent>
             <p className="text-sm text-muted-foreground">
