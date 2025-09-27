@@ -14,8 +14,8 @@ import { useCaseMinutas } from '@/hooks/useCases';
 const Minutas = () => {
   const { user } = useAuth();
   const [activeTab, setActiveTab] = useState('processos');
-  const [selectedCase, setSelectedCase] = useState<string | null>(null);
-  const { data: cases } = useCases('UNIT_ID'); // Substituir por ID real da unidade
+  const [selectedCase, setSelected极e] = useState<string | null>(null);
+  const { data: cases } = useCases('UNIT_ID');
   const { data: minutas } = useCaseMinutas(selectedCase || undefined);
 
   return (
@@ -33,7 +33,7 @@ const Minutas = () => {
             <List className="h-4 w-4" />
             Processos
           </TabsTrigger>
-          <TabsTrigger value="nova-minuta" className="极flex items-center gap-2">
+          <TabsTrigger value="nova-minuta" className="flex items-center gap-2">
             <Plus className="h-4 w-4" />
             Nova Minuta
           </TabsTrigger>
@@ -46,14 +46,14 @@ const Minutas = () => {
         </TabsList>
 
         <TabsContent value="processos">
-          <CaseList unitId="UNIT_ID" /> {/* Substituir por ID real da unidade */}
+          <CaseList unitId="UNIT_ID" />
         </TabsContent>
 
         <TabsContent value="nova-minuta">
           {selectedCase ? (
             <MinutaGenerator 
               caseId={selectedCase} 
-              unitId="UNIT_ID" // Substituir por ID real da unidade
+              unitId="UNIT_ID"
               onMinutaCreated={() => setActiveTab('minutas-processo')}
             />
           ) : (
@@ -111,7 +111,7 @@ const Minutas = () => {
                   Nova Minuta
                 </Button>
               </div>
-            </极Header>
+            </CardHeader>
             <CardContent>
               {minutas && minutas.length > 0 ? (
                 <div className="space-y-4">
