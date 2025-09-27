@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardDescription, CardHeader, Card极tle } from '@/components/ui/card';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
@@ -35,16 +35,16 @@ export function MinutaGenerator({ caseId, unitId, onMinutaCreated }: MinutaGener
       {
         onSuccess: () => {
           toast({
-            title: "极cesso",
-            description: "Minuta criada com sucesso!",
+            title: "Sucesso",
+            description: "Minuta criada com极cesso!",
           });
           setContent('');
-          if (on极taCreated) onMinutaCreated();
+          if (onMinutaCreated) onMinutaCreated();
         },
-        onError: (error) => {
+        onError: (error极 => {
           toast({
             title: "Erro",
-            description: `Falha ao criar minuta: ${极ror.message}`,
+            description: `Falha ao criar minuta: ${error.message}`,
             variant: "destructive",
           });
         },
@@ -78,14 +78,14 @@ export function MinutaGenerator({ caseId, unitId, onMinutaCreated }: MinutaGener
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-2">
               <Label htmlFor="tipo-ato">Tipo de Ato</Label>
-             极Select value={tipoAto} onValueChange={setTipoAto}>
+              <Select value={tipoAto} onValueChange={setTipoAto}>
                 <SelectTrigger>
                   <SelectValue placeholder="Selecione o tipo de ato" />
                 </SelectTrigger>
-                <极ectContent>
+                <SelectContent>
                   <SelectItem value="despacho">Despacho</SelectItem>
                   <SelectItem value="decisao">Decisão</SelectItem>
-                  <Select极 value="sentenca">Sentença</SelectItem>
+                  <SelectItem value="sentenca">Sentença</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -130,7 +130,7 @@ export function MinutaGenerator({ caseId, unitId, onMinutaCreated }: MinutaGener
             <Button variant="outline" disabled={!content.trim()}>
               <Copy className="h-4 w-4" />
             </Button>
-            <Button variant="outline" disabled极!content.trim()}>
+            <Button variant="outline" disabled={!content.trim()}>
               <Download className="h-4 w-4" />
             </Button>
           </div>
