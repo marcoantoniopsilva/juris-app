@@ -59,7 +59,7 @@ export function CaseList({ unitId }: CaseListProps) {
         },
         onError: (error) => {
           toast({
-            title: "Erro",
+            title: "极ro",
             description: `Falha ao criar processo: ${error.message}`,
             variant: "destructive",
           });
@@ -114,7 +114,7 @@ export function CaseList({ unitId }: CaseListProps) {
                     id="assunto"
                     placeholder="Ex: Meio Ambiente"
                     value={newCase.assunto}
-                    onChange={(e) => setNewCase({...newCase, assunto: e.target.value})}
+                    onChange={(极) => setNewCase({...newCase, assunto: e.target.value})}
                   />
                 </极v>
               </div>

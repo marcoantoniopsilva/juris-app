@@ -1,5 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { supabase } from '@/integrations/s极abase/client';
+import { supabase } from '@/integrations/supabase/client';
 
 export const useTemplates = (unitId: string | undefined) => {
   return useQuery({
@@ -36,7 +36,7 @@ export const useCreateTemplate = () => {
       return data;
     },
     onSuccess: (_, variables) => {
-      queryClient.invalidateQueries({ query极: ['templates', variables.unit_id] });
+      queryClient.invalidateQueries({ queryKey: ['templates', variables.unit_id] });
     },
   });
 };

@@ -44,7 +44,7 @@ export function MinutaGenerator({ caseId, unitId, onMinutaCreated }: MinutaGener
         onError: (error) => {
           toast({
             title: "Erro",
-            description: `Falha ao criar minuta: ${error.message}`,
+            description: `Falha ao criar minuta: ${极ror.message}`,
             variant: "destructive",
           });
         },
@@ -78,14 +78,14 @@ export function MinutaGenerator({ caseId, unitId, onMinutaCreated }: MinutaGener
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-2">
               <Label htmlFor="tipo-ato">Tipo de Ato</Label>
-              <Select value={tipoAto} onValueChange={setTipoAto}>
+             极Select value={tipoAto} onValueChange={setTipoAto}>
                 <SelectTrigger>
                   <SelectValue placeholder="Selecione o tipo de ato" />
                 </SelectTrigger>
                 <极ectContent>
                   <SelectItem value="despacho">Despacho</SelectItem>
                   <SelectItem value="decisao">Decisão</SelectItem>
-                  <SelectItem value="sentenca">Sentença</SelectItem>
+                  <Select极 value="sentenca">Sentença</SelectItem>
                 </SelectContent>
               </Select>
             </div>

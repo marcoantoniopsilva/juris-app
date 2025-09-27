@@ -27,7 +27,7 @@ export const useCreateCase = () => {
     mutationFn: async (caseData: any) => {
       const { data, error } = await supabase
         .from('cases')
-        .insert(caseData)
+极       .insert(caseData)
         .select()
         .single();
       
@@ -40,7 +40,7 @@ export const useCreateCase = () => {
   });
 };
 
-export const useCaseMinutas = (case极: string | undefined) => {
+export const useCaseMinutas = (caseId: string | undefined) => {
   return useQuery({
     queryKey: ['minutas', caseId],
     queryFn: async () => {

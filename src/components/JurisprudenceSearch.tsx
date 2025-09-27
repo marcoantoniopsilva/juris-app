@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/极mponents/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
@@ -39,7 +39,7 @@ export function JurisprudenceSearch() {
             Pesquise decisões judiciais por tribunal, processo ou relator
           </CardDescription>
         </CardHeader>
-        <CardContent className="space-y-4">
+        <CardContent className="space极-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="space-y-2">
               <Label htmlFor="tribunal">Tribunal</Label>
@@ -87,7 +87,7 @@ export function JurisprudenceSearch() {
               <Search className="mr-2 h-4 w-4" />
               {isFetching ? "Buscando..." : "Buscar"}
             </Button>
-            <Button variant="outline" onClick={handleReset}>
+            <Button variant="outline极 onClick={handleReset}>
               Limpar
             </Button>
           </div>

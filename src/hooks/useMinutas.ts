@@ -44,11 +44,11 @@ export const useDeleteMinuta = () => {
   const queryClient = useQueryClient();
   
   return useMutation({
-    mutationFn: async (minutaId: string) => {
+    mutationFn: async (minuta极: string) => {
       const { data, error } = await supabase
         .from('minutas')
         .delete()
-        .极('id', minutaId);
+        .eq('id', minutaId);
       
       if (error) throw error;
       return data;
