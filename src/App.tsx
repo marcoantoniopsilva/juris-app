@@ -7,36 +7,20 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
-import { AuthProvider, useAuth } from "./contexts/AuthContext";
+import Documentos from "./pages/Documentos";
+import Jurisprudencia from "./pages/Jurisprudencia";
+import Minutas from "./pages/Minutas";
+import { AuthProvider } from "./contexts/AuthContext";
+import { Layout } from "./components/Layout";
 
 const queryClient = new QueryClient();
 
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
-  const { session, loading } = useAuth();
-  
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900"></div>
-      </div>
-    );
-  }
-  
-  return session ? <>{children}</> : <Navigate to="/login" replace />;
+  return <Layout>{children}</Layout>;
 };
 
 const PublicRoute = ({ children }: { children: React.ReactNode }) => {
-  const { session, loading } = useAuth();
-  
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900"></div>
-      </div>
-    );
-  }
-  
-  return !session ? <>{children}</> : <Navigate to="/dashboard" replace />;
+  return <>{children}</>;
 };
 
 const App = () => (
@@ -56,6 +40,21 @@ const App = () => (
             <Route path="/dashboard" element={
               <ProtectedRoute>
                 <Dashboard />
+              </ProtectedRoute>
+            } />
+            <Route path="/documentos" element={
+              <ProtectedRoute>
+                <Documentos />
+              </ProtectedRoute>
+            } />
+            <Route path="/jurisprudencia" element={
+              <ProtectedRoute>
+                <Jurisprudencia />
+              </ProtectedRoute>
+            } />
+            <Route path="/minutas" element={
+              <ProtectedRoute>
+                <Minutas />
               </ProtectedRoute>
             } />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
