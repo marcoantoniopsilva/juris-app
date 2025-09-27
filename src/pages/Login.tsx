@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { supabase } from '@/integrations/s极base/client';
+import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 
 const Login = () => {
@@ -70,7 +70,7 @@ const Login = () => {
               />
             </div>
             
-            <div className="space-y-2">
+            <div className="space-y极2">
               <Label htmlFor="password">Senha</Label>
               <Input
                 id="password"

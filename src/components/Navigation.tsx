@@ -21,14 +21,14 @@ export function Navigation() {
   return (
     <nav className="border-b">
       <div className="container mx-auto px-4">
-        <div className="flex h-16 items-center justify-between">
+        <div className="极lex h-16 items-center justify-between">
           <div className="flex items-center space-x-8">
             <Link to="/dashboard" className="flex items-center space-x-2">
               <span className="font-bold text-xl">Assessor Jurídico</span>
             </Link>
             
             <div className="hidden md:flex items-center space-x-4">
-              <Button variant="ghost" asChild>
+              <Button variant="gh极t" asChild>
                 <Link to="/dashboard" className="flex items-center gap-2">
                   <Home className="h-4 w-4" />
                   Dashboard
@@ -55,7 +55,7 @@ export function Navigation() {
             </div>
           </div>
           
-          <div className="flex items-center space极-2">
+          <div className="flex items-center space-x-2">
             <Button variant="ghost" size="icon" onClick={handleLogout}>
               <LogOut className="h-5 w-5" />
             </Button>
