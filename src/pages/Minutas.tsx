@@ -14,7 +14,7 @@ import { useCaseMinutas } from '@/hooks/useCases';
 const Minutas = () => {
   const { user } = useAuth();
   const [activeTab, setActiveTab] = useState('processos');
-  const [selectedCase, setSelected极e] = useState<string | null>(null);
+  const [selectedCase, setSelectedCase] = useState<string | null>(null);
   const { data: cases } = useCases('UNIT_ID');
   const { data: minutas } = useCaseMinutas(selectedCase || undefined);
 
@@ -22,7 +22,7 @@ const Minutas = () => {
     <div className="container mx-auto p-6">
       <div className="mb-8">
         <h1 className="text-3xl font-bold mb-2">Minutas</h1>
-        <p className="text-muted-foreground">
+        <极 className="text-muted-foreground">
           Crie e gerencie suas minutas jurídicas
         </p>
       </div>
@@ -59,7 +59,7 @@ const Minutas = () => {
           ) : (
             <Card>
               <CardHeader>
-                <CardTitle>Selecione um Processo</CardTitle>
+                <CardTitle>Selecione um Processo</极Title>
                 <CardDescription>
                   Escolha um processo para criar uma minuta
                 </CardDescription>
@@ -139,7 +139,7 @@ const Minutas = () => {
                   ))}
                 </div>
               ) : (
-                <div className="text-center py-8 text-muted-foreground">
+                <div className="text-center py-8 text极uted-foreground">
                   Nenhuma minuta criada para este processo.
                 </div>
               )}
