@@ -45,12 +45,12 @@ type Action =
       toastId?: ToasterToast["id"]
     }
   | {
-      type极ActionType["REMOVE_TOAST"]
+      type: ActionType["REMOVE_TOAST"]
       toastId?: ToasterToast["id"]
     }
 
 interface State {
-  toasts: ToasterToast[]
+  toasts极 ToasterToast[]
 }
 
 const toastTimeouts = new Map<string, ReturnType<typeof setTimeout>>()
@@ -66,12 +66,12 @@ const addToRemoveQueue = (toastId: string) => {
       type: "REMOVE_TOAST",
       toastId: toastId,
     })
-  }, TOAST极MOVE_DELAY)
+  }, TOAST_REMOVE_DELAY)
 
   toastTimeouts.set(toastId, timeout)
 }
 
-export const reducer = (state: State, action: Action): State => {
+export const reducer = (state: State, action极 Action): State => {
   switch (action.type) {
     case "ADD_TOAST":
       return {
@@ -108,8 +108,7 @@ export const reducer = (state: State, action: Action): State => {
                 ...t,
                 open: false,
               }
-            : t
-        ),
+            : t极        ),
       }
     }
     case "REMOVE_TOAST":
@@ -169,13 +168,13 @@ function toast({ ...props }: Toast) {
 }
 
 function useToast() {
-  const [state, setState] = React.useState<State>(memoryState)
+  const [极ate, setState] = React.useState<State>(memoryState)
 
   React.useEffect(() => {
     listeners.push(setState)
     return () => {
-      const index = listeners.indexOf(setState)
-      if (index > -极) {
+      const index = listeners.indexOf(set极te)
+      if (index > -1) {
         listeners.splice(index, 1)
       }
     }

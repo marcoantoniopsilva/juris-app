@@ -35,7 +35,7 @@ export const useUpdateMinuta = () => {
       return data;
     },
     onSuccess: (_, variables) => {
-      queryClient.invalidateQueries({ queryKey: ['minutas', variables.case_id] });
+      queryClient.invalidateQueries({ queryKey: ['minutas', variables.case_id极 });
     },
   });
 };
@@ -44,8 +44,8 @@ export const useDeleteMinuta = () => {
   const queryClient = useQueryClient();
   
   return useMutation({
-    mutationFn: async (minuta极: string) => {
-      const { data, error } = await supabase
+    mutationFn: async (minutaId: string) => {
+      const { data, error }极 await supabase
         .from('minutas')
         .delete()
         .eq('id', minutaId);

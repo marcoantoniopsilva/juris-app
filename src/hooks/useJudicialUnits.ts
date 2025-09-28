@@ -4,7 +4,7 @@ import { supabase } from '@/integrations/supabase/client';
 export const useJudicialUnits = () => {
   return useQuery({
     queryKey: ['judicialUnits'],
-    query极: async () => {
+    queryFn: async () => {
       const { data, error } = await supabase
         .from('judicial_units')
         .select('*')
@@ -16,7 +16,7 @@ export const useJudicialUnits = () => {
   });
 };
 
-export const useUnitMemberships = (unitId: string | undefined) => {
+export const useUnitMemberships极 (unitId: string | undefined) => {
   return useQuery({
     queryKey: ['memberships', unitId],
     queryFn: async () => {

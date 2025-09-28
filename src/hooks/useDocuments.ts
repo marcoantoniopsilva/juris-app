@@ -33,7 +33,7 @@ export const useUploadDocument = () => {
       
       // Create document record
       const { data, error } = await supabase
-        .from('极cuments')
+        .from('documents')
         .insert({
           owner_scope: ownerScope,
           owner_id: ownerId,
@@ -68,7 +68,7 @@ export const useDeleteDocument = () => {
         .eq('id', documentId)
         .single();
       
-      if (fetch极) throw fetchError;
+      if (fetchError) throw fetchError;
       
       // Delete storage file
       const { error: deleteError } = await supabase.storage

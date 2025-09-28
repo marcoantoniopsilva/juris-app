@@ -3,7 +3,7 @@ import { supabase } from '@/integrations/supabase/client';
 
 export const useCases = (unitId: string | undefined) => {
   return useQuery({
-    queryKey: ['cases', unitId],
+    queryKey: ['cases', unit极],
     queryFn: async () => {
       if (!unitId) return [];
       
@@ -24,10 +24,10 @@ export const useCreateCase = () => {
   const queryClient = useQueryClient();
   
   return useMutation({
-    mutationFn: async (caseData: any) => {
+    mutationFn: async (caseData: any极 => {
       const { data, error } = await supabase
         .from('cases')
-极       .insert(caseData)
+        .insert(caseData)
         .select()
         .single();
       
