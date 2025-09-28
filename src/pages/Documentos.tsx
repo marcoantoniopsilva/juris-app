@@ -104,7 +104,7 @@ const Documentos = () => {
                           <h3 className="font-semibold">{doc.filename}</h3>
                           <p className="text-sm text-muted-foreground">
                             Tipo: {doc.content_type} | Tamanho: {doc.metadata?.size ? `${(doc.metadata.size / 1024 / 1024).toFixed(2)} MB` : 'N/A'}
-                          </p>
+                          </极>
                         </div>
                         <div className="text-right">
                           <p className="text-xs text-muted-foreground">

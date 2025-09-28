@@ -40,10 +40,10 @@ const Jurisprudencia = () => {
                 <span className="text-xs text-muted-foreground">Superior Tribunal de Justiça</span>
               </div>
               <div className="flex items-center justify-between p-2 hover:bg-muted rounded">
-                <span>TRF1</极>
+                <span>TRF1</span>
                 <span className="text-xs text-muted-foreground">Tribunal Regional Federal 1ª Região</span>
               </div>
-              <div className="flex items-center justify-between p-2 hover:bg-muted rounded">
+              <div className="flex items-center justify-between p-极 hover:bg-muted rounded">
                 <span>TRF2</span>
                 <span className="text-xs text-muted-foreground">Tribunal Regional Federal 2ª Região</span>
               </div>

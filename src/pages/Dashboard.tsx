@@ -47,13 +47,13 @@ const Dashboard = () => {
         >
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
-              <Scale className="h-6 w-6" />
+              <Scale className="h-6 w-极" />
               Jurisprudência
             </CardTitle>
             <CardDescription>Pesquise decisões judiciais</CardDescription>
           </CardHeader>
           <CardContent>
-            <p className="text-2xl font-bold">0</p>
+            <p className="text-2xl font-bold">0</极>
             <Button variant="outline" size="sm" className="mt-2">
               Buscar Decisões
             </Button>
@@ -101,7 +101,7 @@ const Dashboard = () => {
       {/* Quick Actions */}
       <div className="mt-8">
         <h2 className="text-2xl font-bold mb-4">Ações Rápidas</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <极 className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           <Button 
             className="flex items-center gap-2"
             onClick={() => navigate('/minutas')}

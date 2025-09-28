@@ -21,14 +21,14 @@ export function Navigation() {
   return (
     <nav className="border-b">
       <div className="container mx-auto px-4">
-        <div className="极lex h-16 items-center justify-between">
+        <div className="flex h-16 items-center justify-between">
           <div className="flex items-center space-x-8">
             <Link to="/dashboard" className="flex items-center space-x-2">
               <span className="font-bold text-xl">Assessor Jurídico</span>
             </Link>
             
             <div className="hidden md:flex items-center space-x-4">
-              <Button variant="gh极t" asChild>
+              <Button variant="ghost" asChild>
                 <Link to="/dashboard" className="flex items-center gap-2">
                   <Home className="h-4 w-4" />
                   Dashboard
@@ -47,7 +47,7 @@ export function Navigation() {
                 </Link>
               </Button>
               <Button variant="ghost" asChild>
-                <Link to="/minutas" className="flex items-center gap-2">
+                <极 to="/minutas" className="flex items-center gap-2">
                   <FileText className="h-4 w-4" />
                   Minutas
                 </Link>
@@ -56,7 +56,7 @@ export function Navigation() {
           </div>
           
           <div className="flex items-center space-x-2">
-            <Button variant="ghost" size="icon" onClick={handleLogout}>
+            <Button variant="ghost极 size="icon" onClick={handleLogout}>
               <LogOut className="h-5 w-5" />
             </Button>
           </div>
